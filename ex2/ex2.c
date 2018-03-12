@@ -8,6 +8,16 @@
 
 int main(int argc, char* argv[])
 {
+    FILE * fp;
+    fp = fopen ("text.txt", "w+");
+    pid_t pid = fork();
+    if(pid == 0) {
+        fprintf(fp, "%s", "Hello from child");
+        fclose(fp);
+    } else {
+        fprintf(fp, "%s", "Hello from Parent");
+        fclose(fp);
+    }
     // Your code here 
     
     return 0;
