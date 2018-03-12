@@ -9,6 +9,13 @@
 int main(int argc, char* argv[])
 {
     // Your code here
+    pid_t pid = fork();
 
+    if(pid == 0) {
+        printf("%s", "hello\n");
+    } else {
+        int wc = waitpid(pid, NULL, 0);
+        printf("%s", "Goodbye\n");
+    }
     return 0;
 }
