@@ -9,6 +9,15 @@
 int main(int argc, char *argv[])
 {
     // Your code here
+    int x = 100;
+    pid_t pid = fork();
+    if (pid == 0) {
+        x = 200;
+        printf("In the child process X is:\n %i", x);
+    } else {
+        x = 400;
+        printf("\nIn the parent process X is:\n %i", x);
+    }
 
     return 0;
 }
