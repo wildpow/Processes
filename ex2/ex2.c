@@ -8,17 +8,18 @@
 
 int main(int argc, char* argv[])
 {
+    char dirname[1024];
+    getcwd(dirname, 1024);
+    printf("This %s\n", dirname);
     FILE * fp;
     fp = fopen ("text.txt", "w+");
     pid_t pid = fork();
     if(pid == 0) {
-        fprintf(fp, "%s", "Hello from child");
+        fprintf(fp, "%s", "Hello from child\n");
         fclose(fp);
     } else {
-        fprintf(fp, "%s", "Hello from Parent");
+        fprintf(fp, "%s", "Hello from Parent\n");
         fclose(fp);
     }
-    // Your code here 
-    
     return 0;
 }
